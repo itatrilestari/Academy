@@ -1,0 +1,645 @@
+{
+	"info": {
+		"_postman_id": "8c964f8c-c58e-4852-89d9-ffcceb642e64",
+		"name": "Academy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32508102",
+		"_collection_link": "https://itatrilestaris-team.postman.co/workspace/local~3f8c3c7a-92fc-41d8-b6d1-6409a5bc3e9d/collection/32508102-8c964f8c-c58e-4852-89d9-ffcceb642e64?action=share&source=collection_link&creator=32508102"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\" : \"ita\",\n  \"password\" : \"ita12345\",\n  \"email\" : \"ita@coofis.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}auth/register",
+							"host": [
+								"{{base_url}}auth"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\" : \"ita\",\n  \"password\" : \"ita12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}auth/login",
+							"host": [
+								"{{base_url}}auth"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evaluation",
+			"item": [
+				{
+					"name": "master category",
+					"item": [
+						{
+							"name": "list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/category",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Course\",\n    \"order\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/category",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"title\": \"Penyelenggaraan\",\n    \"order\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/category/:id",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"category",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "00000000-0000-0000-0000-000000000000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/category/:id",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"category",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "b1c66720-017e-4afa-9fed-da9f01485f9c"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "master eval question",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Platform mudah digunakan dengan baik 3\",\n    \"category_id\": \"d2f2bc3d-3b5d-420c-89c2-c8e13154e236\",\n    \"parent_id\": \"240c61a5-6aac-472a-b936-7e4e27a416e5\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/evaluation/question",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"evaluation",
+										"question"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Categy ke 2 atau child\"\n    // \"category_id\": \"d796e2fe-e44f-4a2c-87f9-115f8ff8caad\"\n    // \"parent_id\": \"c907b5c1-12de-4605-a4b5-60658dcb225c\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/evaluation/question/:id",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"evaluation",
+										"question",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "240c61a5-6aac-472a-b936-7e4e27a416e5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url_go}}master/evaluation/question/:id",
+									"host": [
+										"{{base_url_go}}master"
+									],
+									"path": [
+										"evaluation",
+										"question",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "aaf4be81-4580-44d6-8bfd-34b24388ed4d"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/evaluation/question/",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"evaluation",
+										"question",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "master eval answer",
+					"item": [
+						{
+							"name": "list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/evaluation/answer/",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"evaluation",
+										"answer",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Scale\": 7,\n    \"Predicate\": \"Best bgt\",\n    \"Score\": \"7\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/evaluation/answer",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"evaluation",
+										"answer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Scale\": 1,\n    // \"Predicate\": \"Best bgt ong\",\n    \"Score\": \"1\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/evaluation/answer/:id",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"evaluation",
+										"answer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "e594cc34-cb0f-4071-9c6c-df48767f9a40"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}admin/master/evaluation/answer/:id",
+									"host": [
+										"{{base_url}}admin"
+									],
+									"path": [
+										"master",
+										"evaluation",
+										"answer",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "b50662cc-de71-433e-9d86-4c7c614d7adf"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Evaluation",
+					"item": [
+						{
+							"name": "create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3OTQ1NzgzOTAsInVzZXJfaWQiOiIwYTcwMzc2Yi0yOGQwLTQxMTctOTg2Ny04OTEwODk2ZjhhMDIifQ.VWV0WGoKx3NiwSjRg7zAocR3Um11grXt4pY2pb1gDlQ",
+										"description": "tino",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"answer\": [\n    { \"question_id\": \"508ec9ad-f877-4f2f-acb5-3ef98f2a34fb\", \"answer_id\": \"e594cc34-cb0f-4071-9c6c-df48767f9a40\"},\n    { \"question_id\": \"240c61a5-6aac-472a-b936-7e4e27a416e5\", \"answer_id\": \"e594cc34-cb0f-4071-9c6c-df48767f9a40\"}\n  ],\n  \"suggestion\": \"Materinya bagus, tapi contoh kasusnya kurang.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}evaluation",
+									"host": [
+										"{{base_url}}evaluation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}evaluation/:id/",
+									"host": [
+										"{{base_url}}evaluation"
+									],
+									"path": [
+										":id",
+										""
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5812eb56-e16a-41ad-a682-be6d6aa9bd3a"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
